@@ -1,0 +1,213 @@
+/*start of basic colors*/
+$very-dark-grayish-blue: hsl(217, 19%, 35%);
+$desaturated-dark-blue: hsl(214, 17%, 51%);
+$grayish-blue: hsl(212, 23%, 69%);
+$light-grayish-blue: hsl(210, 46%, 95%);
+/*end of basic colors*/
+
+/*start of basic styles*/
+html {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-color: $light-grayish-blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Manrope", sans-serif;
+  overflow: hidden;
+}
+/*end of basic styles*/
+
+/*start of article*/
+article {
+  position: relative;
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  .content {
+    padding: 10% 9% 4% 9%;
+    h1 {
+      font-weight: 700;
+      margin: 0;
+      color: $very-dark-grayish-blue;
+      font-size: 16px;
+    }
+    p {
+      color: $desaturated-dark-blue;
+      font-size: 13px;
+      padding-bottom: 15px;
+    }
+  }
+}
+.article-footer {
+  position: relative;
+  h5 {
+    margin: 0;
+    display: inline-block;
+    color: $very-dark-grayish-blue;
+  }
+  small {
+    color: $grayish-blue;
+  }
+  .share {
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+    position: absolute;
+    z-index: 2;
+    left: 90%;
+    top: 7px;
+    cursor: pointer;
+    .fa-share {
+      color: $desaturated-dark-blue;
+      font-size: 15px;
+    }
+    &:hover {
+      background-color: $desaturated-dark-blue;
+      .fa-share {
+        color: $light-grayish-blue;
+      }
+    }
+  }
+  img {
+    width: 40px;
+    border-radius: 100%;
+    margin-right: 15px;
+    float: left;
+  }
+}
+.activeBackground {
+  /*when share button is active it take this background color(this class will be added by javascript*/
+  background-color: $desaturated-dark-blue;
+}
+.article-footer .share .activeIcon {
+  /*when share button is active it take this color in its icon(this class will be added by javascript*/
+  color: $light-grayish-blue;
+}
+/*end of article*/
+
+/*start of accounts-container(share)*/
+.accounts-countainer {
+  background-color: $very-dark-grayish-blue;
+  position: absolute;
+  top: 458px;
+  width: 100%;
+  padding: 25px 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
+  p {
+    margin: 0;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0 7px;
+    font-size: 12px;
+    color: $grayish-blue;
+  }
+  .fab {
+    font-size: 25px;
+    padding: 0 7px;
+    color: white;
+    cursor: pointer;
+    &:hover {
+      color: $grayish-blue;
+    }
+  }
+}
+.hide {
+  //this will hide the accounts countainer(this class will be added or removed by javascript)
+  visibility: hidden;
+}
+/*end of accounts-container(share)*/
+
+/*start of attribution*/
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  color: $desaturated-dark-blue;
+  padding-top: 10px;
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+/*end of attribution*/
+
+/*start of media query*/
+@media screen and(min-width: 700px) {
+  article {
+    width: 680px;
+    height: fit-content;
+    img {
+      width: 40%;
+      height: 100%;
+      float: left;
+      border-radius: 10px 0 0 10px;
+    }
+    .content {
+      float: right;
+      width: 60%;
+      padding: 3% 5%;
+      font-size: 13px;
+      h1 {
+        font-size: 20px;
+      }
+      p {
+        padding-bottom: 0;
+      }
+    }
+  }
+  .article-footer {
+    .share {
+      left: 90%;
+      top: 5px;
+    }
+  }
+  .accounts-countainer {
+    left: 460px;
+    top: 117px;
+    width: fit-content;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    &::after {
+      content: " ";
+      position: absolute;
+      top: 100%;
+      left: 74%;
+      margin-left: -10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: $very-dark-grayish-blue transparent transparent transparent;
+    }
+  }
+}
+@media screen and(min-width: 790px) {
+  //this is an exception for accounts countainer(just move it a little bit)
+  .accounts-countainer {
+    left: 513px;
+    &::after {
+      left: 50%;
+    }
+  }
+}
+/*end of media query*/
